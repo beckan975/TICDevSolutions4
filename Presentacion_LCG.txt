@@ -1,1 +1,1 @@
-Hola a todos, me llamo Laura Cárdenas Gómez y soy ingeniera administradora. En los últimos años me he enfocado en todo lo relacionado con Data Science y ahora estoy comenzando en el mundo del desarrollo de software. 
+Hola, me llamo Laura Cárdenas Gómez y soy ingeniera administradora. En los últimos años me he enfocado en todo lo relacionado con Data Science y ahora estoy comenzando en el mundo del desarrollo de software. 
