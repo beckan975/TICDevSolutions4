@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken")
-const { token } = require("morgan")
 
 const generetaJWT = (uid) => {
     return new Promise((resolve, reject) => {
@@ -7,7 +6,7 @@ const generetaJWT = (uid) => {
             uid
         };
         jwt.sign(payload, process.env.JWT_SECRET, {
-            expiresIn: '12h',
+            expiresIn: '12h'
         }, (err, token) => {
             if (err) {
                 reject(err);
@@ -16,3 +15,5 @@ const generetaJWT = (uid) => {
         });
     });
 }
+
+module.exports = { generetaJWT }

@@ -27,7 +27,7 @@ const login = async(req = request, resp = response) => {
     }
 }
 
-const singUp = async(req = request, resp = response) => {
+const signup = async(req = request, resp = response) => {
     try {
         const { email, password } = req.body;
         const tempUser = await User.findOne({ email });
@@ -60,5 +60,5 @@ const singUp = async(req = request, resp = response) => {
 
 module.exports = {
     login,
-    singUp
+    signup
 }
