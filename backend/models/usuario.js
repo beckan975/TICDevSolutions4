@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const usuarioSchema = Schema({
     nombre: {
@@ -15,9 +15,9 @@ const usuarioSchema = Schema({
         required: true,
     },
     rol: {
-        type: String,
-        required: true,
-        default: 'Usuario',
+        type: Types.ObjectId,
+        ref: 'Rol',
+        required: true
     },
     activo: {
         type: Boolean,
