@@ -1,17 +1,20 @@
-import { dbConnection } from './database/config';
-import 'reflect-metadata'
-require('dotenv').config();
-import { RolResolver } from './resolvers/rol.resolver'; 
-import express = require("express");
+import 'reflect-metadata';
+
 import { graphqlHTTP } from "express-graphql";
 import { buildSchema } from "type-graphql";
+import { dbConnection } from './database/config';
+import { ProyectoResolver } from './resolvers/proyecto.resolver';
+import { RolResolver } from './resolvers/rol.resolver';
+import { SolicitudResolver } from './resolvers/solicitud.resolver';
+import { UsuarioResolver } from './resolvers/usuario.resolver';
+require('dotenv').config();
 
-console.log("Hola mundo");
+import express = require("express");
 
 async function main() {
     const app = express();
     const schema = await buildSchema({
-        resolvers: [RolResolver],
+        resolvers: [RolResolver,UsuarioResolver,SolicitudResolver,ProyectoResolver],
     });
 
     dbConnection();

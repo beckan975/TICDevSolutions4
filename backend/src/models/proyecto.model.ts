@@ -45,4 +45,4 @@ const proyectoSchemma = new Schema({
     return object;
 });
 
-export const ProyectoModel = model('Proyecto', proyectoSchemma);
+export const ProyectoModel = model('Proyecto', proyectoSchemma, 'Proyectos');

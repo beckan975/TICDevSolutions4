@@ -7,13 +7,13 @@ import { Arg, Mutation, Query, Resolver } from "type-graphql";
 @Resolver(of => RolType)
 export class RolResolver {
     @Query(returns => [RolType], { nullable: true })
-    async getRoles() {
+    async getRoles(): Promise<RolType[]> {
         let roles = await RolModel.find();
         return roles as RolType[];
     }
 
     @Mutation(returns => RolType)
-    async createRol(@Arg("rol") rolInput: RolInput) {
+    async createRol(@Arg("rol") rolInput: RolInput):Promise<RolType|any> {
         console.log(rolInput);
         let rol = new RolModel(rolInput);
         try {
@@ -21,9 +21,9 @@ export class RolResolver {
             console.log(rol.toJSON());
             return rol as RolType;
         } catch (error) {
-            error={
-                message:error.message,
-                status:500
+            error = {
+                message: error.message,
+                status: 500
             }
             return error;
         }
@@ -36,7 +36,7 @@ export class RolResolver {
     }
 
     @Mutation(returns => Boolean)
-    async deleteRol(@Arg("id") id: string) {
+    async deleteRol(@Arg("id") id: string): Promise<boolean> {
         try {
             await RolModel.findByIdAndDelete(id);
             return true;

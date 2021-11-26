@@ -1,3 +1,4 @@
+import { SolicitudType } from './../types/solicitud.type';
 import { model, Schema, Types } from "mongoose";
 
 const solicitudSchema = new Schema({
@@ -11,4 +12,4 @@ const solicitudSchema = new Schema({
     return object;
 });
 
-export const SolicitudModel = model('Solicitud', solicitudSchema);
+export const SolicitudModel = model('Solicitud', solicitudSchema, 'Solicitudes');
