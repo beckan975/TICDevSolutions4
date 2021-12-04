@@ -8,7 +8,13 @@ export class SolicitudResolver {
     @Query(returns => [SolicitudType], { nullable: true })
     async getSolicitudes(): Promise<SolicitudType[] | any> {
         try {
-            let solicitudes = await SolicitudModel.find().populate("usuario");
+            let solicitudes = await SolicitudModel.find().populate("usuario", "rol")
+                .populate({
+                    path: "usuario",
+                    populate: {
+                        path: "rol"
+                    }
+                });
             return solicitudes as SolicitudType[];
         } catch (error) {
             return error = {
@@ -25,7 +31,12 @@ export class SolicitudResolver {
     async createSolicitud(@Arg("solicitud") solicitudInput: SolicitudInput): Promise<SolicitudType | any> {
         try {
             let solitud = new SolicitudModel(solicitudInput);
-            solitud.populate("usuario");
+            solitud.populate({
+                path: "usuario",
+                populate: {
+                    path: "rol"
+                }
+            });
             await solitud.save();
             return solitud as SolicitudType;
         } catch (error) {
@@ -41,8 +52,22 @@ export class SolicitudResolver {
     @Mutation(returns => SolicitudType)
     async updateSolicitud(@Arg("solicitud") solicitudInput: SolicitudInput): Promise<SolicitudType | any> {
         try {
-            let solitud = await SolicitudModel.findByIdAndUpdate(solicitudInput.id, solicitudInput, { new: true });
-            return solitud;
+            let solicitud = await SolicitudModel.findByIdAndUpdate(solicitudInput.id, solicitudInput, { new: true });
+            solicitud.populate({
+                path: "usuario",
+                populate: {
+                    path: "rol"
+                }
+            });
+
+            let temp= await SolicitudModel.findById(solicitudInput.id)
+            .populate({
+                path: "usuario",
+                populate: {
+                    path: "rol"
+                }
+            });
+            return temp as SolicitudType;
         } catch (error) {
             return error = {
                 message: "Error al actualizar la solicitud",

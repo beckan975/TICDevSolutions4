@@ -1,3 +1,4 @@
+import { UsuarioInput } from './../inputs/usuario.input';
 import { UsuarioType } from './../types/usuario.type';
 import { model, Schema, Types } from "mongoose";
 
@@ -14,5 +15,5 @@ const usuarioSchema = new Schema({
     return object;
 });
 
-export const UsuarioModel = model<UsuarioType>('Usuario', usuarioSchema, 'Usuarios');
+export const UsuarioModel = model('Usuario', usuarioSchema, 'Usuarios');
 
