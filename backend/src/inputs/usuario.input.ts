@@ -9,8 +9,8 @@ export class UsuarioInput {
     nombre!: string;
     @Field()
     apellido!: string;
-    @Field(type => RolInput)
-    rol!: RolInput;
+    @Field()
+    rol!: string;
     @Field()
     email!: string;
     @Field()
