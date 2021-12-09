@@ -6,7 +6,6 @@ import { UsuarioType } from "../types/usuario.type";
 @Resolver(of => UsuarioType)
 export class UsuarioResolver {
     
-    @Authorized()
     @Query(returns => [UsuarioType], { nullable: true })
     async getUsuarios(): Promise<UsuarioType[] | any> {
         try {

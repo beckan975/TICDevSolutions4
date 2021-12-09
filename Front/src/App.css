@@ -25,3 +25,12 @@
 .page-container .page-actions Button {
     margin-right: 1em;
 }
+
+.page-content .card {
+    padding: 1.5rem;
+}
+
+.page-content form button {
+    width: 100%;
+    margin-top: 1.5rem;
+}
