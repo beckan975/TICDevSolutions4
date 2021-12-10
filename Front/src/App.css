@@ -34,3 +34,26 @@
     width: 100%;
     margin-top: 1.5rem;
 }
+
+.usuario-field {
+    margin-bottom: 1rem;
+}
+
+.usuario-actions {
+    display: flex;
+}
+
+.usuario-actions .form-group {
+    width: 70%;
+}
+
+.usuario-actions .btn {
+    width: 20%;
+    margin: 0px auto;
+    margin-left: 1rem;
+    border: solid 1px #ccc;
+}
+
+.usuarios-proyecto {
+    margin-top: 1rem;
+}

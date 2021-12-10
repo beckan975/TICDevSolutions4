@@ -5,6 +5,8 @@ export class ProyectoInput {
     @Field({ nullable: true })
     id: string;
     @Field()
+    nombre: string;
+    @Field()
     lider: string;
     @Field()
     estado: string;
