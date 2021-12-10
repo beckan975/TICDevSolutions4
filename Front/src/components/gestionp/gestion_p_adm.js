@@ -6,11 +6,11 @@ import React from 'react'
 //import { useHistory } from 'react-router'
 import '../gestionp/gestion.css'
 
-const Proyectos = () => {
+const Proyectosad = () => {
   
     return (
         <div className="proyectos">
-       
+       <h2>LISTADO DE PROYECTOS</h2>   
 
         <table className="table">
             <thead className="table-head">
@@ -18,7 +18,8 @@ const Proyectos = () => {
                     <th scope="col">id</th>
                     <th scope="col">Descripcion</th>
                    
-                    <th scope="col">Autores</th>
+                    <th scope="col">Alumnos</th>
+                    <th scope="col">Aprobacion</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Acciones</th>
                 </tr>
@@ -28,16 +29,16 @@ const Proyectos = () => {
                    
                         <tr>
                             <td>001</td>
-                            <td>La influencia del covid en la economia</td>
-                            <td>MM, LC, ER</td>
+                            <td>La influencia del COVID-19 en la economia de paises emergentes</td>
+                            <td>Marlon M, Laura C, Edwin R, Santiago C, Juan Pablo </td>
                             <td>Aprobado</td>
+                            <td>Activado</td>
                             <td className="acciones">
-                                <button className="btn btn-editar" type="button" >
-                                    Editar
+                                <button className="btn-editar" type="button" >
+                                    Aprobar/Desaprobar
                                 </button>
-
-                                <button className="btn btn-eliminar" type="button">
-                                    Eliminar
+                                <button className="btn-eliminar" type="button">
+                                    Activar/Desactivar
                                 </button>
                             </td>
                         </tr>
@@ -48,4 +49,4 @@ const Proyectos = () => {
     </div>
     )
 }
-export default Proyectos;
+export default Proyectosad;
