@@ -1,0 +1,45 @@
+<div class="busqo-info-container">
+    <app-titles [title]="data.title"></app-titles>
+    <div class="busqo-content">
+        <form [formGroup]="projectDetailForm" novalidate>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre del proyecto</mat-label>
+                <input matInput type="text" name="projectName" formControlName="projectName" placeholder="Ingrese el nombre del proyecto">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Lider del proyecto</mat-label>
+                <mat-select formControlName="lider" name="lider" placeholder="Ingrese el lider del proyecto">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let lider of usersList" [value]="lider.id">
+                        {{lider.nombre}} {{lider.apellido}} - {{lider.rol.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Estado del proyecto</mat-label>
+                <mat-select formControlName="estado" name="estado" placeholder="Ingrese el estado del proyecto">
+                    <mat-option value=""></mat-option>
+                    <mat-option value="Activo">Activo</mat-option>
+                    <mat-option value="Inactivo">Inactivo</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <app-users (onSelectUser)="getUsersByProject($event)"></app-users>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Presupuesto</mat-label>
+                <input matInput type="number" name="presupuesto" name="presupuesto" formControlName="presupuesto" placeholder="Ingrese el presupuesto">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Fase</mat-label>
+                <input matInput type="text" formControlName="fase" name="fase">
+            </mat-form-field>
+        </form>
+
+        <div class="busqo-action-container">
+            <button mat-raised-button color="primary" (click)="onCreateProject()">Aceptar</button>
+            <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+        </div>
+    </div>
+</div>
