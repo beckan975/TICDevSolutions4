@@ -10,15 +10,15 @@ export class ProyectoInput {
     lider: string;
     @Field()
     estado: string;
-    @Field(type => [String])
+    @Field(type => [String], { nullable: true })
     objetivosEsperados: string[];
     @Field()
     presupuesto: number;
     @Field(type => [String])
     estudiantes: string[];
-    @Field(type => [String])
+    @Field(type => [String], { nullable: true })
     solicitudesEstudiantes: string[];
-    @Field(type => [String])
+    @Field(type => [String], { nullable: true })
     avances: string[];
     @Field()
     fase: string;

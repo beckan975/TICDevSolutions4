@@ -1,5 +1,5 @@
 import { UsuarioModel } from './../../../models/usuario.model';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -21,6 +21,10 @@ export class UsersComponent implements OnInit {
     public spinner: NgxSpinnerService,
     private toastr: ToastrService
   ) { }
+
+  public setUsuariosPorProyecto(usuarios: any[]) {
+    this.usuariosPorProyecto = usuarios;
+  }
 
   ngOnInit(): void {
     this.addUserToProject();

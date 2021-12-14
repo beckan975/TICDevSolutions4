@@ -24,7 +24,7 @@
                 </mat-select>
             </mat-form-field>
 
-            <app-users (onSelectUser)="getUsersByProject($event)"></app-users>
+            <app-users #usuarioComponent (onSelectUser)="getUsersByProject($event)"></app-users>
 
             <mat-form-field appearance="outline">
                 <mat-label>Presupuesto</mat-label>
@@ -38,7 +38,7 @@
         </form>
 
         <div class="busqo-action-container">
-            <button mat-raised-button color="primary" (click)="onCreateProject()">Aceptar</button>
+            <button mat-raised-button color="primary" (click)="onCreateProject()" [disabled]="!enabledForm">Aceptar</button>
             <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
         </div>
     </div>
