@@ -50,13 +50,23 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit {
   }
 
   private createForm() {
-    this.projectDetailForm = this.fb.group({
-      projectName: ['' || this.data.project.nombre, Validators.required],
-      lider: ['' || this.data.project.lider.id, Validators.required],
-      estado: ['' || this.data.project.estado, Validators.required],
-      presupuesto: ['' || this.data.project.presupuesto, Validators.required],
-      fase: ['' || this.data.project.fase, Validators.required]
-    });
+    if (!this.data.project) {
+      this.projectDetailForm = this.fb.group({
+        projectName: ['', Validators.required],
+        lider: ['', Validators.required],
+        estado: ['', Validators.required],
+        presupuesto: ['', Validators.required],
+        fase: ['', Validators.required]
+      });
+    } else {
+      this.projectDetailForm = this.fb.group({
+        projectName: [this.data.project.nombre, Validators.required],
+        lider: [this.data.project.lider, Validators.required],
+        estado: [this.data.project.estado, Validators.required],
+        presupuesto: [this.data.project.presupuesto, Validators.required],
+        fase: [this.data.project.fase, Validators.required]
+      });
+    }
   }
 
   private getUsers() {

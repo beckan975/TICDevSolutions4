@@ -57,15 +57,26 @@ export class UsuariosComponent implements OnInit {
       data: {
         title: "Nuevo Usuario"
       }
-    })
+    });
   }
 
   onEdit(usuario: UsuarioModel) {
-
+    this.dialog.open(UsersDetailsComponent, {
+      data: {
+        title: "Editar Usuario",
+        usuario: usuario
+      }
+    });
   }
 
   onDelete(id: string) {
-
+    this.spinner.show();
+    this.usuariosService.deleteUsuario(id).subscribe(result => {
+      this.spinner.hide();
+      this.toastr.success("Usuario eliminado correctamente");
+    }, error => {
+      this.spinner.hide();
+      this.toastr.error(error.message, 'Error');
+    });
   }
-
 }

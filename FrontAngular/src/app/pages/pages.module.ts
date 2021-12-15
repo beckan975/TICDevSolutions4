@@ -13,6 +13,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
 import { UsersComponent } from './projects/users/users.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsersDetailsComponent } from './usuarios/users-details/users-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     HomeComponent,
     ProjectDetailComponent,
     UsersComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UsersDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     PagesComponent,
     HomeComponent,
     ProjectDetailComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UsersDetailsComponent
   ]
 })
 export class PagesModule { }

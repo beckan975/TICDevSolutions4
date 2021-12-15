@@ -1,1 +1,43 @@
-<p>users-details works!</p>
+<div class="busqo-info-containe">
+    <app-titles [title]="data.title"></app-titles>
+    <div class="busqo-content">
+        <form [formGroup]="userDetailForm" novalidate>
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" name="nombre" formControlName="nombre" placeholder="Ingrese el nombre del usuario">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" name="apellido" formControlName="apellido" placeholder="Ingrese el apellido del usuario">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="rol" name="rol" placeholder="Ingrese el rol del usuario">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let rol of rolesList" [value]="rol.id">
+                        {{rol.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" formControlName="email" placeholder="Ingrese el email del usuario">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" name="password" formControlName="password" placeholder="Ingrese la contraseña del usuario">
+            </mat-form-field>
+
+            <mat-checkbox formControlName="activo">Estado del usuario</mat-checkbox>
+        </form>
+
+        <div class="busqo-action-container">
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!enabledForm">Aceptar</button>
+            <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+        </div>
+    </div>
+</div>
