@@ -1,0 +1,42 @@
+<div class="busqo-info-containe">
+    <app-titles [title]="data.title"></app-titles>
+    <div class="busqo-content">
+        <form [formGroup]="solicitudDetailForm" novalidate>
+            <mat-form-field appearance="outline">
+                <mat-label>Usuario</mat-label>
+                <mat-select formControlName="usuario">
+                    <mat-option value=""></mat-option>
+                    <mat-option *ngFor="let usuario of userList" [value]="usuario.id">
+                        {{usuario.nombre}} {{usuario.apellido}} - {{usuario.rol.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput formControlName="descripcion"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="estado">
+                    <mat-option value=""></mat-option>
+                    <mat-option value="Aceptado">Aceptado</mat-option>
+                    <mat-option value="Rechazado">Rechazado</mat-option>
+                    <mat-option value="Pendiente">Pendiente</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <div class="busqo-action-container">
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!solicitudDetailForm.valid">Aceptar</button>
+            <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+        </div>
+    </div>
+</div>

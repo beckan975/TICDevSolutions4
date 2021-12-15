@@ -1,0 +1,52 @@
+<div class="busqo-info-container">
+    <app-titles [title]="title"></app-titles>
+    <div class="busqo-content">
+        <div class="busqo-action-container">
+            <button mat-raised-button color="primary" (click)="onCreate()">Agregar Solicitud</button>
+            <button mat-raised-button color="warn">Cancelar</button>
+        </div>
+        <div class="busqo-table-container" *ngIf="showTable">
+            <table mat-table [dataSource]="solicitudes" class="busqo-table">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let solicitud"> {{solicitud.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fecha">
+                    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                    <td mat-cell *matCellDef="let solicitud"> {{solicitud.fecha|date:'dd/MM/yyyy'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                    <td mat-cell *matCellDef="let solicitud"> {{solicitud.estado}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="userName">
+                    <th mat-header-cell *matHeaderCellDef> Nombre del usuario </th>
+                    <td mat-cell *matCellDef="let solicitud"> {{solicitud.usuario.nombre}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="userApellido">
+                    <th mat-header-cell *matHeaderCellDef> Apellido del usuario </th>
+                    <td mat-cell *matCellDef="let solicitud"> {{solicitud.usuario.apellido}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let solicitud">
+                        <button mat-icon-button (click)="onEdit(solicitud)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="onDelete(solicitud.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

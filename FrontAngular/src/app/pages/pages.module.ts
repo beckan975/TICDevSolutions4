@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { UsersComponent } from './projects/users/users.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsersDetailsComponent } from './usuarios/users-details/users-details.component';
+import { SolicitudesComponent } from './solicitudes/solicitudes.component';
+import { SolicitudDetailComponent } from './solicitudes/solicitud-detail/solicitud-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { UsersDetailsComponent } from './usuarios/users-details/users-details.co
     ProjectDetailComponent,
     UsersComponent,
     UsuariosComponent,
-    UsersDetailsComponent
+    UsersDetailsComponent,
+    SolicitudesComponent,
+    SolicitudDetailComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +46,8 @@ import { UsersDetailsComponent } from './usuarios/users-details/users-details.co
     HomeComponent,
     ProjectDetailComponent,
     UsuariosComponent,
-    UsersDetailsComponent
+    UsersDetailsComponent,
+    SolicitudesComponent
   ]
 })
 export class PagesModule { }

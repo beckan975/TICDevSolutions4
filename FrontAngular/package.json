@@ -24,6 +24,7 @@
     "@apollo/client": "^3.5.6",
     "apollo-angular": "^2.6.0",
     "graphql": "^15.7.2",
+    "moment": "^2.29.1",
     "ngx-spinner": "^13.0.0",
     "ngx-toastr": "^14.2.1",
     "rxjs": "~7.4.0",
