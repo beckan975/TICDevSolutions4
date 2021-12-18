@@ -6,10 +6,12 @@ import { Field, ObjectType } from 'type-graphql';
 export class ProyectoType {
     @Field({ nullable: true })
     id: string;
+    @Field()
+    nombre: string;
     @Field(type => UsuarioType)
     lider: UsuarioType;
     @Field()
-    estado: boolean;
+    estado: string;
     @Field(type => [String])
     objetivosEspecificos: string[];
     @Field()
@@ -18,8 +20,8 @@ export class ProyectoType {
     estudiantes: UsuarioType[];
     @Field(type => [SolicitudType])
     solicitudesEstudiantes: SolicitudType[];
-    @Field(type=>[String])
-    avances:string[];
+    @Field(type => [String])
+    avances: string[];
     @Field()
-    fase:string;
+    fase: string;
 }

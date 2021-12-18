@@ -5,8 +5,7 @@ import { UsuarioType } from "../types/usuario.type";
 
 @Resolver(of => UsuarioType)
 export class UsuarioResolver {
-    
-    @Authorized()
+
     @Query(returns => [UsuarioType], { nullable: true })
     async getUsuarios(): Promise<UsuarioType[] | any> {
         try {
@@ -25,7 +24,7 @@ export class UsuarioResolver {
 
         try {
 
-            const existeUsuario = await UsuarioModel.exists({ where: { email: usuarioInput.email } });
+            const existeUsuario = await UsuarioModel.exists({ email: usuarioInput.email });
 
             if (existeUsuario) {
                 throw new Error("El usuario ya existe");
@@ -59,6 +58,9 @@ export class UsuarioResolver {
                         let usuario = await UsuarioModel.findByIdAndUpdate(usuarioInput.id, usuarioInput, { new: true }).populate("rol") as UsuarioType;
                         return usuario;
                     }
+                }else{
+                    let usuario = await UsuarioModel.findByIdAndUpdate(usuarioInput.id, usuarioInput, { new: true }).populate("rol") as UsuarioType;
+                    return usuario;
                 }
             }
         } catch (error) {

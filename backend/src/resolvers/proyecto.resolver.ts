@@ -9,8 +9,15 @@ export class ProyectoResolver {
     @Query(returns => [ProyectoType], { nullable: true })
     async getProyectos(): Promise<ProyectoType[] | any> {
         try {
-            let proyectos = await ProyectoModel.find().populate("lider", "estudiantes", "solicitudes");
-            return proyectos as ProyectoType[];
+            let proyectos = await ProyectoModel.find()
+                .populate("lider")
+                .populate({
+                    path: "estudiantes",
+                    populate: {
+                        path: "rol",
+                    }
+                });
+            return proyectos;
         } catch (error) {
             return error = {
                 message: "Error al obtener los proyectos",

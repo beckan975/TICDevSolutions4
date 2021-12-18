@@ -1,0 +1,32 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="large" color="#fff" type="ball-beat" [fullScreen]="true">
+    <p style="color:white">Cargando... </p>
+</ngx-spinner>
+<mat-sidenav-container class="busqo-sidenav-container">
+    <mat-sidenav mode="side" opened class="busqo-sidenav">
+        <mat-selection-list [multiple]="false">
+            <a style="text-decoration: none;" [routerLink]="['./home']" routerLinkActive="router-link-active">
+                <mat-list-option class="busqo-list-option">
+                    <h3>Home</h3>
+                </mat-list-option>
+            </a>
+            <a style="text-decoration: none;" [routerLink]="['./users']" routerLinkActive="router-link-active">
+                <mat-list-option class="busqo-list-option">
+                    <h3>Usuarios</h3>
+                </mat-list-option>
+            </a>
+            <a style="text-decoration: none;" [routerLink]="['./solicitudes']" routerLinkActive="router-link-active">
+                <mat-list-option class="busqo-list-option">
+                    <h3>Solicitudes</h3>
+                </mat-list-option>
+            </a>
+            <a style="text-decoration: none;" [routerLink]="['./projects']" routerLinkActive="router-link-active">
+                <mat-list-option class="busqo-list-option">
+                    <h3>Proyectos</h3>
+                </mat-list-option>
+            </a>
+        </mat-selection-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

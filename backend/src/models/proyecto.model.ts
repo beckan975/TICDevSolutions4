@@ -11,8 +11,8 @@ const proyectoSchemma = new Schema({
         required: true
     },
     estado: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: "Activo"
     },
     objetivosEspecificos: [{
         type: String,

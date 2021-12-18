@@ -8,12 +8,15 @@ import { ProyectoResolver } from './resolvers/proyecto.resolver';
 import { RolResolver } from './resolvers/rol.resolver';
 import { SolicitudResolver } from './resolvers/solicitud.resolver';
 import { UsuarioResolver } from './resolvers/usuario.resolver';
-
+import cors = require('cors');
 import express = require("express");
 require('dotenv').config();
 
 async function main() {
     const app = express();
+
+    //configuar cors
+    app.use(cors());
     const schema = await buildSchema({
         resolvers: [RolResolver, UsuarioResolver, SolicitudResolver, ProyectoResolver, AuthResolver],
     });
@@ -28,9 +31,10 @@ async function main() {
     }));
 
     app.listen(process.env.PORT, () => {
-        console.log("Server started on port 3000");
+        console.log(`Server is running on port ${process.env.PORT}`);
     });
 
 }
 
 main();
+
